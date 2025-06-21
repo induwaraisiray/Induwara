@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://induwaraya.netlify.app/sitemap.xml
