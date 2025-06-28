@@ -1,0 +1,786 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INDUWARA SYBER MENU ULTIMATE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+  --primary-red: #ff0000;
+  --primary-dark: #000000;
+  --primary-light: #ff4d4d;
+  --accent-gold: #ff0000;
+  --glow-dark: rgba(0, 0, 0, 0.7);
+  --bg-dark: #000;
+  --bg-light: #f5f5f5;
+  --text-dark: white;
+  --text-light: black;
+  --accent: #ff0000;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--primary-dark);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, var(--primary-dark), var(--glow-dark), var(--primary-dark));
+  overflow: hidden;
+}
+
+.red-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--primary-red);
+  box-shadow: 0 0 10px 2px var(--primary-red);
+  animation: float 15s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translate(100vw, -100vh) scale(1.2); opacity: 0; }
+}
+
+.electric-pulse {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
+  animation: pulse 8s infinite alternate;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  margin-bottom: 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-red);
+  transition: transform 0.5s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 0 40px var(--primary-red);
+}
+
+.logo-text h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--primary-red), var(--accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo-text span {
+  font-size: 1rem;
+  color: var(--primary-light);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  border: 2px solid var(--primary-red);
+  box-shadow: 0 0 15px var(--primary-red);
+  margin-bottom: 40px;
+}
+
+.feature-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  border-radius: 10px;
+  border: 3px solid var(--primary-red);
+  margin-bottom: 30px;
+  animation: redGlow 3s infinite alternate;
+}
+
+@keyframes redGlow {
+  0% { box-shadow: 0 0 10px var(--primary-red); }
+  100% { box-shadow: 0 0 25px var(--primary-red); }
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-light);
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #000, #111);
+  border: 2px solid var(--accent-gold);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #1A1A1A;
+  color: #bbb;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+#visitor-count {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-light);
+  text-shadow: 0 0 5px red;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 340px;
+  max-height: 500px;
+  background-color: #111;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+.chat-header {
+  background-color: var(--accent);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-body {
+  padding: 12px;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-footer {
+  display: flex;
+  background: #000;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+.chat-footer button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.user-msg, .bot-msg {
+  background: #222;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 80%;
+  position: relative;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background-color: var(--primary-light);
+}
+
+.bot-msg {
+  align-self: flex-start;
+  background-color: #333;
+}
+
+.copy-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-size: 10px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.emoji-btns {
+  display: flex;
+  gap: 5px;
+  padding: 5px 10px;
+}
+
+.emoji-btns button {
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#theme-toggle {
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #222;
+  color: white;
+  outline: none;
+}
+
+#send-btn {
+  background: red;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+#chat-body p {
+  margin: 6px 0;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 0;
+  background: rgba(255, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: -6px 0 20px rgba(255, 0, 0, 0.3);
+  transition: width 0.4s ease, opacity 0.3s;
+  padding-top: 80px;
+  z-index: 1001;
+  overflow-x: hidden;
+  opacity: 0;
+}
+
+.sidebar.open {
+  width: 260px;
+  opacity: 1;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+  border-radius: 8px;
+  margin: 6px 20px;
+}
+
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff4d4d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+.sidebar a::before {
+  content: "›";
+  margin-right: 12px;
+  font-size: 20px;
+  color: #ff4d4d;
+  transition: transform 0.3s ease;
+}
+
+.sidebar a:hover::before {
+  transform: translateX(5px);
+}
+
+.openbtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: #ff1a1a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50px;
+  z-index: 1002;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.openbtn:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+.loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: #ff3333;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100vh;
+  letter-spacing: 5px;
+  z-index: 2000;
+}
+
+body * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 5%;
+}
+
+.feature-card {
+  position: relative;
+  padding: 30px;
+  border-radius: 18px;
+  background: #000;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.feature-card i {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, transparent, red, transparent);
+  animation: glow-border 2s linear infinite;
+  z-index: -1;
+}
+
+@keyframes glow-border {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px red;
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 20px red;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar.open {
+    width: 100%;
+  }
+}
+    
+  </style>
+</head>
+<body>
+
+    <!-- Loading -->
+  <div id="loadingOverlay" class="loading-overlay">..SyBeRx⚙️..</div>
+
+  <!-- Toggle Button -->
+  <button class="openbtn" onclick="showLoader()">☰</button>
+
+  <!-- Sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="https://wa.me/+94740544995?text=INDUWARA" class="btn"><i class="fas fa-user-secret"></i> Contact</a>
+    <a href="https://induwarafire23.blogspot.com" class="btn"><i class="fas fa-house"></i> Main side</a>
+    <a href="https://tiktok.com/@isira__induwara" class="btn"><i class="fab fa-tiktok"></i> Tik Tok page</a>
+    <a href="https://whatsapp.com/channel/0029Vb8r2VAA2pL7aJBH0b32" class="btn"><i class="fas fa-tag"></i> Chanel</a>
+    <a href="#" class="btn"><i class="fas fa-robot"></i> Upadate</a>
+  </div>
+  
+  <div class="animated-bg" id="animated-bg"></div>
+  <div class="electric-pulse"></div>
+
+  <p id="visitor-count"><i class="fas fa-user-plus"></i> <span id="visitor-number"></span> Users Joined</p>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="https://files.catbox.moe/155gad.jpg" alt="INDUWARA" class="logo-image" loading="lazy">
+        <div class="logo-text">
+          <h1>INDUWARA SYBERX</h1>
+          <span>Sri Lanka best webpage</span>
+        </div>
+      <div id="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-wifi"></i>
+      </div>
+     </div>
+    </header>
+
+    <main class="main-content">
+      <img src="https://files.catbox.moe/zrnyza.jpg" alt="SULA-MD Feature" class="feature-image" loading="lazy">
+      <h2>This Website Are Create Now Isira Induwara</h2>
+      <p>This Site is a fast, easy-to-use, and highly efficient MultiDevice Website.</p>
+      <div class="button-group">
+        <a href="#" class="btn"><i class="fas fa-download"></i> Download list</a>
+        <a href="#" class="btn"><i class="fas fa-file"></i> apk list</a>
+        <a href="https://syberx.netlify.app" class="btn"><i class="fas fa-location-dot"></i> api address</a>
+        <a href="https://ai.apis-nothing.xyz/" class="btn"><i class="fas fa-robot"></i> ai gpt</a>
+        <a href="https://mv.asitha.top" class="btn"><i class="fas fa-camera"></i> movie site</a>
+        <a href="https://tv.infinityapi.org/" class="btn"><i class="fas fa-television"></i> free tv site</a>
+        <a href="https://youtube.asitha.top" class="btn"><i class="fab fa-youtube"></i> Yo download</a>
+                
+                
+      </div>
+    </main>
+
+  </div>
+  <div id="chat-button" onclick="toggleChat()">
+    💬
+  </div>
+  <div id="chat-box">
+    <div class="chat-header">
+      <span>Cyber Bot</span>
+      <div>
+        <button id="theme-toggle" onclick="toggleTheme()">🖥️</button>
+        <button onclick="toggleChat()">×</button>
+      </div>
+    </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="emoji-btns">
+      <button onclick="quickSend('❤️')">💖️</button>
+      <button onclick="quickSend('😂')">🤣</button>
+      <button onclick="quickSend('👍')">✌️</button>
+      <button onclick="quickSend('🙏')">🤝</button>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="user-input" placeholder=" Message.." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</section>    
+    
+<section class="features">
+  <div class="feature-card">
+    <i class="fas fa-rocket"></i>
+    <h3>Seamless Deployment</h3>
+    <p>Deploy and manage your bot effortlessly in just a few minutes.</p>
+  </div>
+  <div class="feature-card">
+    <i class="fas fa-tag"></i>
+    <h3>Most Popular Website</h3>
+    <p>Create a powerful and user-friendly website with INDUWARA SYBERX, designed for simplicity and efficiency.</p>
+  </div>
+  <div class="feature-card">
+    <i class="fas fa-shield-alt"></i>
+    <h3>Latest Features</h3>
+    <p>We continuously improve by adding only the best and safest features to enhance your bot’s performance.</p>
+  </div>
+  <div class="feature-card">
+    <i class="fas fa-user-secret"></i>
+    <h3>Website Creator</h3>
+    <p>This was made by Isira Induwara at age 16. It updates automatically with the latest information. Join with us. Thank you!</p>
+  </div>
+</section>
+    <!-- Footer -->
+    <footer>
+  Made by <a href="https://whatsapp.com/channel/0029Vb8r2VAA2pL7aJBH0b32">Isira induwara</a> &copy; 2025 - <span id="currentYear"></span> All rights reserved.
+</footer>
+
+<script>
+  // පසුබැසී particle background එකක් සාදන්න
+  function createParticles(count) {
+    const container = document.getElementById('animated-bg');
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'red-particle';
+      const size = Math.random() * 3 + 2;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      container.appendChild(particle);
+    }
+  }
+
+  // පටන්ගන්න particles සාදන්න
+  createParticles(30);
+
+  // page load වෙද්දි element animations
+  window.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('body *');
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, index * 100);
+    });
+
+    // fake visitor count load
+    let count = localStorage.getItem('fakeVisitors') || 0;
+    count++;
+    localStorage.setItem('fakeVisitors', count);
+    document.getElementById('visitor-number').innerText = count;
+  });
+
+  // loading overlay සහ sidebar toggle
+  function showLoader() {
+    const overlay = document.getElementById("loadingOverlay");
+    const sidebar = document.getElementById("mySidebar");
+
+    overlay.style.display = "block";
+
+    setTimeout(() => {
+      overlay.style.display = "none";
+      sidebar.classList.toggle("open");
+    }, 2000);
+  }
+
+  // chat box toggle කිරීම
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+    box.style.flexDirection = 'column';
+  }
+
+  // theme toggle කිරීම
+  let darkMode = true;
+  function toggleTheme() {
+    darkMode = !darkMode;
+    document.documentElement.style.setProperty('--bg-dark', darkMode ? '#000' : '#f5f5f5');
+    document.documentElement.style.setProperty('--text-dark', darkMode ? 'white' : 'black');
+    
+    const toggleIcon = document.querySelectorAll('#theme-toggle');
+    toggleIcon.forEach(el => {
+      el.textContent = darkMode ? '🌙' : '☀️';
+    });
+  }
+
+  // පණිවිඩ යැවීම
+  function sendMessage(msg = null) {
+    const input = document.getElementById('user-input');
+    const text = msg || input.value.trim();
+    if (!text) return;
+
+    appendMessage('user', text);
+    input.value = '';
+
+    const reply = getBotReply(text);
+    setTimeout(() => {
+      appendMessage('bot', reply);
+      speak(reply);
+    }, 1000);
+  }
+
+  // පණිවිඩය UI එකට එකතු කිරීම
+  function appendMessage(type, text) {
+    const chatBody = document.getElementById('chat-body');
+    const msg = document.createElement('div');
+    msg.className = type + '-msg';
+    msg.innerHTML = text;
+
+    const copyBtn = document.createElement('span');
+    copyBtn.textContent = '📋';
+    copyBtn.className = 'copy-btn';
+    copyBtn.title = "Copy message";
+    copyBtn.onclick = () => navigator.clipboard.writeText(msg.textContent);
+
+    msg.appendChild(copyBtn);
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  // බොට් කතා කිරීම (text-to-speech)
+  function speak(text) {
+    if (!('speechSynthesis' in window)) return;
+
+    const cleanText = text.replace(/<[^>]*>?/gm, '');
+    const speech = new SpeechSynthesisUtterance(cleanText);
+    const voices = speechSynthesis.getVoices();
+    const sinhalaVoice = voices.find(v => v.lang === 'si-LK') || voices.find(v => v.lang.startsWith('en'));
+
+    if (sinhalaVoice) speech.voice = sinhalaVoice;
+    speech.pitch = 1;
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+  }
+
+  // emoji quick reply
+  function quickSend(emoji) {
+    appendMessage('user', emoji);
+    const reply = getBotReply(emoji);
+    setTimeout(() => {
+      appendMessage('bot', reply);
+      speak(reply);
+    }, 800);
+  }
+
+  // බොට් reply logic
+  function getBotReply(message) {
+    const lower = message.toLowerCase();
+    const replies = {
+      "hi": "ආයුබෝවන්!",
+      "hello": "හෙලෝ!",
+      "how are you": "මම හොඳයි, ඔබට කොහොමද?",
+      "name": "මගේ නම Cyber Bot.",
+      "thank you": "ඔබට ස්තූතියි!",
+      "bye": "ගුඩ් බයි!",
+      "love": "මම ඔබව ආදරෙයි!",
+      "image": '<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="100">',
+      "gif": '<img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" width="100">',
+      "❤️": "ඔබටත් ආදරෙයි!",
+      "😂": "හහ් හහ්!",
+      "👍": "හොඳයි!",
+      "🙏": "ඔබට ආශිර්වාද!",
+    };
+
+    for (const key in replies) {
+      if (lower.includes(key)) return replies[key];
+    }
+
+    return "සමාවෙන්න, ඒක තේරුම් ගන්න බැරිවුණා.";
+  }
+</script>
+<script src="https://www.drv.tw/inc/wd.js?s=txrv14gw7kn81ziwrzhejw"></script></body>
+</html>

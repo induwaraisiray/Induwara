@@ -1,0 +1,1647 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="S75D_tXbYJPG_HLD4LOyLGkuiLghPX60fm74osp2NxI" />
+
+  <title>Induwaraya | Web Hosting Sri Lanka, Website Sales & Tech Tools</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <meta name="description" content="Host your website with Induwaraya - offering fast web hosting in Sri Lanka, domain sales, and modern tech tools for developers and businesses.">
+  <meta name="keywords" content="web hosting Sri Lanka, free hosting, cPanel hosting, domain sale, buy domain, website for sale, web templates, induwaraya, induwaraya hosting, induwaraya web services, induwara tools, tech collections, free web tools, UI kits, website builder Sri Lanka, web hosting offers, kurumagala website, isira induwara, induwaraya collection, modern website tools">
+  <meta name="author" content="Induwara">
+
+  <!-- OpenGraph for Facebook, WhatsApp etc -->
+  <meta property="og:title" content="Induwaraya | Web Hosting & Technology Services">
+  <meta property="og:description" content="Explore induwaraya.netlify.app for reliable hosting, domain sales, and powerful web tools.">
+  <meta property="og:url" content="https://induwaraya.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://induwaraya.netlify.app/preview.jpg">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Induwaraya - Fast Hosting & Website Tools">
+  <meta name="twitter:description" content="Buy websites, host your own, and access high quality web tools for free.">
+  <meta name="twitter:image" content="https://induwaraya.netlify.app/preview.jpg">
+
+  <link rel="canonical" href="https://induwaraya.netlify.app/">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>  
+
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #10b981;
+  --text: #f8f9fa;
+  --text-muted: #b0b0b0;
+  --bg: #121212;
+  --bg-card: #1e1e1e;
+  --bg-nav: rgba(18, 18, 18, 0.95);
+  --bg-footer: #0a0a0a;
+  --border: #2d2d2d;
+  --gray: #94a3b8;
+  --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+/* --- Custom Scrollbar --- */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Dark mode specific scrollbar styles (apply .dark-mode class to <body> or parent) */
+.dark-mode::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* --- Reset & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  min-height: 100vh;
+}
+
+/* Hide scrollbar on body but keep functionality for various browsers */
+body::-webkit-scrollbar { /* For Webkit browsers */
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* --- Buttons --- */
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: var(--text);
+  border: 1px solid var(--primary-dark);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #6d3bcb);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+  transform: translateY(-2px);
+}
+
+/* New Menu Panel Styles */
+#menuPanel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#menuPanel.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menuPanel h2 {
+  color: var(--text);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px rgba(248, 249, 250, 0.5);
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  max-width: 100%;
+  height: auto; /* අන්තර්ගතයට අනුව උස සකසයි */
+  overflow-y: auto;
+  padding: 20px;
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border);
+}
+
+.menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--primary-dark);
+}
+
+.menu-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ef4444;
+  color: var(--text);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.4);
+}
+
+.close-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Scrollbar styles for menu-items-grid specifically */
+.menu-items-grid::-webkit-scrollbar {
+  width: 8px;
+}
+.menu-items-grid::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+.menu-items-grid::-webkit-scrollbar-track {
+  background: var(--bg-card);
+}
+
+/* --- Layout Components --- */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Navigation --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--bg-nav);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 1rem 5%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  z-index: 1001;
+}
+
+.logo img {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  position: relative;
+  color: #e0e0e0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* --- Hero Section --- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rem 5% 5rem;
+  min-height: 100vh;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1 1 50%;
+  z-index: 2;
+}
+
+.hero-image {
+  flex: 1 1 40%;
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+}
+
+.hero-image img {
+  width: 350px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+} 
+/* Gradient Circle Effect */
+.gradient-circle {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 8s ease infinite;
+}
+/* --- Features Section --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+}
+
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin-top: 1.5rem;
+}
+
+/* --- Solutions Section --- */
+.solution-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-muted);
+}
+
+.tab-btn.active {
+  background: var(--gradient);
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.tab-content.active {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.solution-content {
+  flex: 1;
+}
+
+.solution-content h2 {
+  margin-bottom: 1.5rem;
+}
+
+.solution-list {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.solution-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.solution-list i {
+  color: var(--secondary);
+}
+
+.solution-image {
+  flex: 1;
+}
+
+/* --- Pricing Section --- */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--primary);
+  transform: scale(1.05);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--gradient);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.pricing-card h3 {
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.features-list {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.features-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.features-list i {
+  color: var(--secondary);
+}
+
+/* --- Contact Section --- */
+.contact-container {
+  display: flex;
+  gap: 4rem;
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h2 {
+  margin-bottom: 1.5rem;
+}
+
+.contact-methods {
+  margin-top: 2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-method i {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--border);
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* --- Footer --- */
+.footer {
+  background: var(--bg-footer);
+  color: white;
+  padding: 5rem 5% 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--gradient);
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 1rem;
+}
+
+.footer-col ul li a {
+  color: var(--gray);
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* --- Animations --- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+[data-animate].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay animations */
+[data-animate-delay="100"] { transition-delay: 0.1s; }
+[data-animate-delay="200"] { transition-delay: 0.2s; }
+[data-animate-delay="300"] { transition-delay: 0.3s; }
+[data-animate-delay="400"] { transition-delay: 0.4s; }
+[data-animate-delay="500"] { transition-delay: 0.5s; }
+
+/* Hero Image Animation */
+.hero-image img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Gradient Pulse */
+.gradient-circle {
+  animation: pulse 8s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Feature Icon Hover */
+.feature-card:hover .feature-icon {
+  transform: rotateY(180deg);
+  background: var(--gradient);
+  color: white;
+}
+
+/* Tab Content Transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Theme Transition */
+body,
+.navbar,
+.feature-card,
+.pricing-card,
+.contact-container,
+.footer {
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.form-group input,
+.form-group textarea {
+  transition: background-color 0.5s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a,
+.tab-btn,
+.solution-list li,
+.features-list li,
+.footer-col ul li a,
+.footer-links a {
+  transition: color 0.3s ease;
+}
+
+/* --- Responsive Styles --- */
+
+/* For smaller desktops and large tablets */
+@media (max-width: 1200px) {
+  .hero-title { font-size: 3rem; }
+  .tab-content.active { flex-direction: column; }
+  .contact-container { flex-direction: column; }
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 992px) {
+  html, body {
+    width: 100%;
+    /* overflow-x: hidden; -- Already defined in base body styles, no need to repeat */
+  }
+
+  /* Navigation */
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    background: var(--bg-card);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    transition: left 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* Hamburger button always visible on mobile */
+  .hamburger {
+    display: flex;
+    margin-left: auto; /* Push to the right */
+    /* margin-right: 15px; -- Removed as margin-left: auto is sufficient and padding is preferred for spacing */
+    padding: 12px;
+  }
+
+  /* Hero section */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 6rem 1rem 3rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Sections */
+  section {
+    padding: 3rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Grids */
+  .features-grid,
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  /* Contact form */
+  .contact-container {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  /* Ensure images don't overflow */
+  img, .hero-image img, .solution-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Form elements */
+  input, textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* For smaller tablets and large phones */
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+  .hero-title { font-size: 2.5rem; }
+  .section-title { font-size: 2rem; }
+  .pricing-card.featured { transform: none; }
+  .contact-container { padding: 2rem; }
+}
+
+/* For extra small devices (phones) */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .tab-content.active {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .solution-content, .solution-image {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* For very small phones */
+@media (max-width: 576px) {
+  html { font-size: 14px; }
+
+  .hero-buttons { flex-direction: column; gap: 1rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  .section { padding: 4rem 1.5rem; }
+  .solution-tabs { flex-direction: column; }
+  .tab-btn { width: 100%; text-align: center; }
+}
+
+        /* Popup එක සඳහා CSS */
+        .custom-popup-overlay {
+            display: none; /* මුලින් popup එක නොපෙන්වයි */
+            position: fixed; /* තිරය මත රැඳී සිටීමට */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* අඳුරු පසුබිම */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .custom-popup-content h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .custom-popup-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .close-popup-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-popup-btn:hover {
+            background-color: #0056b3;
+        }
+
+
+</style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="logo">
+    <span>INDUWARA OFFICIAL</span>
+   </div>
+   <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+   <div class="hamburger">
+    <span></span> <span></span> <span></span>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="hero">
+   <div class="hero-content" data-animate data-animate-delay="100">
+    <h1 class="hero-title">Transform Your Digital Experience</h1>
+    <p class="hero-subtitle">induwara edition for modern web colocation. Scalable, secure, and lightning fast.</p>
+<div class="hero-buttons">
+  <button class="btn btn-primary btn-lg" id="openMenuBtn">Get start</button>
+</div>
+
+<div id="menuPanel">
+  <button class="close-btn" id="closeMenuBtn">X</button>
+  <h2>select Web buttons</h2>
+  <div class="menu-items-grid">
+    <a href="https://example.com/link1" target="_blank" class="menu-btn">option 1</a>
+    <a href="https://example.com/link2" target="_blank" class="menu-btn">option 2</a>
+    <a href="https://example.com/link3" target="_blank" class="menu-btn">option 3</a>
+    <a href="https://example.com/link4" target="_blank" class="menu-btn">option 4</a>
+    <a href="https://example.com/link5" target="_blank" class="menu-btn">option 5</a>
+    <a href="https://example.com/link6" target="_blank" class="menu-btn">option 6</a>
+    <a href="https://example.com/link7" target="_blank" class="menu-btn">option 7</a>
+    <a href="https://example.com/link8" target="_blank" class="menu-btn">option 8</a>
+    <a href="https://example.com/link2" target="_blank" class="menu-btn">option 9</a>
+  </div>
+</div>
+   </div>
+   <div class="hero-image" data-animate data-animate-delay="300">
+    <img src="https://files.catbox.moe/roa3s5.jpg" alt="Hero Image" class="parallax" data-speed="0.3">
+   </div>
+  </section><!-- Features Section -->
+  <section id="features" class="features">
+   <div class="section-header" data-animate>
+    <h2 class="section-title">Powerful Features</h2>
+    <p class="section-subtitle">Everything you need to succeed in the digital world</p>
+   </div>
+   <div class="features-grid">
+    <div class="feature-card" data-animate data-animate-delay="100">
+     <div class="feature-icon">
+      <i class="fas fa-bolt"></i>
+     </div>
+     <h3>Lightning Fast</h3>
+     <p>Optimized for speed with our cutting-edge technology stack.</p><a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="feature-card" data-animate data-animate-delay="200">
+     <div class="feature-icon">
+      <i class="fas fa-shield-alt"></i>
+     </div>
+     <h3>Enterprise Security</h3>
+     <p>Military-grade encryption and compliance with industry standards.</p><a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="feature-card" data-animate data-animate-delay="300">
+     <div class="feature-icon">
+      <i class="fas fa-chart-line"></i>
+     </div>
+     <h3>Real-time Analytics</h3>
+     <p>Make data-driven decisions with our powerful analytics dashboard.</p><a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="feature-card" data-animate data-animate-delay="300">
+     <div class="feature-icon">
+      <i class="fas fa-computer"></i>
+     </div>
+     <h3>From us for the lowest amount</h3>
+     <p>We have the webSite as a simple and modern new time.</p><a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="feature-card" data-animate data-animate-delay="300">
+     <div class="feature-icon">
+      <i class="fas fa-user-secret"></i>
+     </div>
+     <h3>This was made</h3>
+     <p>The dues of here is by someone Isira Induwara.Is currently 16 years old</p><a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>    
+   </div>
+  </section><!-- Solutions Section -->
+  <section id="solutions" class="solutions">
+   <div class="solution-tabs" data-animate>
+    <button class="tab-btn active" data-tab="tab-1">Collection</button> <button class="tab-btn" data-tab="tab-2">Plans</button>
+   </div>
+   <div class="tab-content active" id="tab-1" data-animate data-animate-delay="100">
+    <div class="solution-content">
+     <h2>Beautifully collection</h2>
+     <p>Boost your online sales with our tailored e-commerce platform. Integrated payment gateways, inventory management, and customer analytics.</p>
+     <ul class="solution-list">
+      <li><i class="fas fa-check"></i> You can get</li>
+      <li><i class="fas fa-check"></i> In the lowest amount</li>
+      <li><i class="fas fa-check"></i> Tell the best one</li>
+     </ul>
+     <button class="btn btn-primary" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20webpage%20👋%20%60🧬⬇️%60*', '_blank')">Buy webpage</button>
+    </div>
+    <div class="solution-image">
+     <img src="https://files.catbox.moe/pzilwu.png" alt="image error">
+    </div>
+   </div><!-- Additional tab contents would go here -->
+  </section><!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+   <div class="section-header" web hosting service>
+    <h2 class="section-title">Simple Best Plans</h2>
+    <p class="section-subtitle">Choose the hosting plan that fits your needs</p>
+   </div>
+   
+<div class="pricing-cards">
+  <div class="pricing-card">
+    <h3>Hosting Plan</h3>
+    <div class="price">RS.100/= <span>/web hosting</span></div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Very advanced</li>
+      <li><i class="fas fa-check"></i> Customizable web address</li>
+      <li><i class="fas fa-check"></i> Fast loading speed</li>
+    </ul>
+    <button class="btn" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20hosting%20plan%20%60100$%60*', '_blank')">Get Started</button>
+  </div>
+
+  <div class="pricing-card featured" data-animate data-animate-delay="200">
+    <div class="popular-badge">
+      Most Popular
+    </div>
+    <h3>Hosting plan</h3>
+    <div class="price">
+      RS.159/=<span>/web hosting</span>
+    </div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Free domain</li>
+      <li><i class="fas fa-check"></i> Smooth speed</li>
+      <li><i class="fas fa-check"></i> 100GB memory</li>
+      <li><i class="fas fa-check"></i> 12 months hosting</li>
+      <li><i class="fas fa-check"></i> Very quick loading</li>
+    </ul>
+    <button class="btn btn-primary" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20Web%20hosting%20plan%20%60159$%60*', '_blank')">Get Started</button>
+  </div>
+
+  <div class="pricing-card" data-animate data-animate-delay="300">
+    <h3>Personalized Website</h3>
+    <div class="price">
+      RS.318/=<span>/for you</span>
+    </div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> In your name</li>
+      <li><i class="fas fa-check"></i> With your picture</li>
+      <li><i class="fas fa-check"></i> Customizable colors</li>
+      <li><i class="fas fa-check"></i> With your information</li>
+      <li><i class="fas fa-check"></i> Lag-free performance</li>
+      <li><i class="fas fa-check"></i> Customizable link length</li>
+      <li><i class="fas fa-check"></i> Any device supported</li>
+    </ul>
+    <button class="btn btn-outline" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20Owener%20webpage%20plan%20%60318$%60*', '_blank')">Get Started</button>
+  </div>
+
+  <div class="pricing-card featured" data-animate data-animate-delay="200">
+    <div class="popular-badge">
+      Most Popular
+    </div>
+    <h3>Personalized Website</h3>
+    <div class="price">
+      RS.477/=<span>/for you</span>
+    </div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> In your name</li>
+      <li><i class="fas fa-check"></i> With your picture</li>
+      <li><i class="fas fa-check"></i> Customizable colors</li>
+      <li><i class="fas fa-check"></i> With your information</li>
+      <li><i class="fas fa-check"></i> Free short domain</li>
+      <li><i class="fas fa-check"></i> Latest Animations</li>
+      <li><i class="fas fa-check"></i> Lag-free performance</li>
+      <li><i class="fas fa-check"></i> Very fast website speeds</li>
+      <li><i class="fas fa-check"></i> Any device supported</li>
+      <li><i class="fas fa-check"></i> 12 months uninterrupted service</li>
+    </ul>
+    <button class="btn btn-primary" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20Owener%20webpage%20plan%20%60477$%60*', '_blank')">Get Started</button>
+  </div>
+
+  <div class="pricing-card" data-animate data-animate-delay="300">
+    <h3>Get Web Service</h3>
+    <div class="price">
+      RS.200/=<span>/source</span>
+    </div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Advanced web</li>
+      <li><i class="fas fa-check"></i> Selected web theme</li>
+      <li><i class="fas fa-check"></i> Simple and quick</li>
+      <li><i class="fas fa-check"></i> Latest Animations</li>
+      <li><i class="fas fa-check"></i> Lag-free performance</li>
+      <li><i class="fas fa-check"></i> Very fast website speeds</li>
+      <li><i class="fas fa-check"></i> Any device supported</li>
+    </ul>
+    <button class="btn btn-outline" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20web%20plan%20%60200$%60*', '_blank')">Get Started</button>
+  </div>
+  
+  <div class="pricing-card featured" data-animate data-animate-delay="200">
+    <div class="popular-badge">
+      Most Popular
+    </div>
+    <h3>Web owener ship</h3>
+    <div class="price">
+      RS.800/=<span>/for you</span>
+    </div>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Lifetime owenership</li>
+      <li><i class="fas fa-check"></i> No third party access</li>
+      <li><i class="fas fa-check"></i> Official warnty</li>
+      <li><i class="fas fa-check"></i> Moden web setup</li>
+      <li><i class="fas fa-check"></i> you choice of theam</li>
+      <li><i class="fas fa-check"></i> Fast and simple sever</li>
+      <li><i class="fas fa-check"></i> Lag-free performance</li>
+      <li><i class="fas fa-check"></i> Very fast website speeds</li>
+      <li><i class="fas fa-check"></i> Any device supported</li>
+      <li><i class="fas fa-check"></i> Costem web address</li>
+    </ul>
+    <button class="btn btn-primary" onclick="window.open('https://wa.me/94740544995?text=*Hi%2C%20Induwara%20I%20want%20to%20get%20Owener%20webpage%20plan%20%60477$%60*', '_blank')">Get Started</button>
+  </div>
+</div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="contact">
+   <div class="contact-container" data-animate>
+    <div class="contact-info">
+     <h2>Ready to get started?</h2>
+     <p>Our team is here to answer your questions and help you find the perfect solution.</p>
+     <div class="contact-methods">
+      <div class="contact-method">
+       <i class="fas fa-envelope"></i> <span>Induawaradigital@gmail.com</span>
+      </div>
+      <div class="contact-method">
+       <i class="fas fa-phone"></i> <span>+94 77 2257 877</span>
+      </div>
+      <div class="contact-method">
+       <i class="fas fa-map-marker-alt"></i> <span>Sri lanka, kurunegala</span>
+      </div>
+     </div>
+    </div>
+    <form class="contact-form">
+     <div class="form-group">
+      <input type="text" placeholder="Your Name" required>
+     </div>
+     <div class="form-group">
+      <input type="email" placeholder="Email Address" required>
+     </div>
+     <div class="form-group">
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+     </div><button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="footer-grid">
+    <div class="footer-col">
+     <div class="logo">
+      <span>INDUWARA OFFICIAL SITE</span>
+     </div>
+     <p>induwara edition for modern web colocation.</p>
+     <div class="social-links">
+      <a href="#"><i class="fab fa-whatsapp"></i></a> <a href="#"><i class="fab fa-tiktok"></i></a> <a href="#"><i class="fab fa-github"></i></a> <a href="#"><i class="fab fa-google"></i></a>
+     </div>
+    </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="#" class="open-popup-link" data-popup-title="Features" data-popup-text="Learn about all the features of our product and how they benefit you.">Features</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Prices" data-popup-text="We have different prices plans to suit your needs.">Prices</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="API" data-popup-text="Easily connect with your apps using our API.">API</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Grapping" data-popup-text="Find out how to combine our product with other systems.">Grapping</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>The company</h4>
+            <ul>
+                <li><a href="#" class="open-popup-link" data-popup-title="About us" data-popup-text="Learn about our company's history, vision and service.">About us</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Careers" data-popup-text="Information on the career opportunities to join our team.">Careers</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Blog" data-popup-text="Read our latest blogs, news and ideas.">Blog</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Media" data-popup-text="Press releases, news coverage and media contact information.">Media</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#" class="open-popup-link" data-popup-title="Documents" data-popup-text="Complete documentation of our products and services.">Documents</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Guidelines" data-popup-text="Get advice by different guidelines and tutorials. ">Guidelines</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Support" data-popup-text="Contact our support team for any help you need.">Support</a></li>
+                <li><a href="#" class="open-popup-link" data-popup-title="Community" data-popup-text="Contact our community and ask questions, share ideas.">Community</a></li>
+            </ul>
+        </div>
+    <div class="footer-bottom">
+    <p>© 2025 Induwara Powerful Sites. All rights reserved.</p>
+    <div class="footer-links">
+     <a href="#">Privacy Policy</a> <a href="#">Terms of Service</a> <a href="#">Cookies</a>
+    </div>
+   </div>
+  </footer>
+
+    <div id="custom-popup-overlay" class="custom-popup-overlay">
+        <div class="custom-popup-content">
+            <h3 id="popup-title"></h3>
+            <p id="popup-text-content"></p>
+            <button id="close-popup-btn" class="close-popup-btn">close</button>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Mobile Navigation (මොබයිල් නේවීගේෂන්) ---
+    // හැම්බර්ගර් අයිකනය සහ නේවීගේෂන් ලින්ක්ස් තෝරා ගැනීම
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    // හැම්බර්ගර් සහ නේවීගේෂන් ලින්ක්ස් තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (hamburger && navLinks) {
+        // හැම්බර්ගර් අයිකනය ක්ලික් කළ විට
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active'); // හැම්බර්ගර් අයිකනයට 'active' class එක මාරු කිරීම
+            navLinks.classList.toggle('active'); // නේවීගේෂන් ලින්ක්ස් වලට 'active' class එක මාරු කිරීම (මෙනුව පෙන්වීමට/සැඟවීමට)
+        });
+
+        // මොබයිල් මෙනුවේ ඇති ලින්ක් එකක් ක්ලික් කළ විට මෙනුව වැසීම
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active'); // හැම්බර්ගර් එකෙන් 'active' class එක ඉවත් කිරීම
+                navLinks.classList.remove('active'); // නේවීගේෂන් ලින්ක්ස් වලින් 'active' class එක ඉවත් කිරීම
+            });
+        });
+    }
+
+    // --- Sticky Navigation (ස්ථාවර නේවීගේෂන්) ---
+    // navbar element එක තෝරා ගැනීම
+    const navbar = document.querySelector('.navbar');
+
+    // navbar එක තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (navbar) {
+        // පිටුව scroll කරන විට
+        window.addEventListener('scroll', function() {
+            // scroll කළ දුර pixels 50 ට වඩා වැඩි නම්
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled'); // navbar එකට 'scrolled' class එක එකතු කිරීම
+            } else {
+                navbar.classList.remove('scrolled'); // එසේ නොමැති නම් 'scrolled' class එක ඉවත් කිරීම
+            }
+        });
+    }
+
+    // --- Smooth Scrolling (සුමටව Scroll වීම) ---
+    // '#' වලින් ආරම්භ වන සියලුම anchor links තෝරා ගැනීම
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault(); // ලින්ක් එකේ default ක්‍රියාව නැවැත්වීම (ක්ෂණිකව පැනීම)
+
+            const targetId = this.getAttribute('href'); // ලින්ක් එකේ href attribute එක ලබා ගැනීම
+            if (targetId === '#') return; // href එක '#' පමණක් නම් කිසිවක් නොකර සිටීම
+
+            const targetElement = document.querySelector(targetId); // අදාළ target element එක තෝරා ගැනීම
+            if (targetElement) {
+                // ස්ථාවර header එකක් තිබේ නම්, එයට අනුව scroll position එක සකස් කිරීම
+                const offset = navbar ? navbar.offsetHeight : 80; // navbar උස හෝ default 80px
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - offset, // ඉහළ සිට target element එකේ දුරින් offset එක අඩු කිරීම
+                    behavior: 'smooth' // සුමටව scroll වීමේ animation එක සක්‍රීය කිරීම
+                });
+            }
+        });
+    });
+
+    // --- Tab System (ටැබ් පද්ධතිය) ---
+    // ටැබ් බොත්තම් සහ ටැබ් අන්තර්ගතයන් තෝරා ගැනීම
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // ටැබ් බොත්තම් සහ අන්තර්ගතයන් තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (tabButtons.length > 0 && tabContents.length > 0) {
+        // සෑම ටැබ් බොත්තමකටම click listener එකක් එකතු කිරීම
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // සියලුම බොත්තම් සහ අන්තර්ගතයන්ගෙන් 'active' class එක ඉවත් කිරීම
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // ක්ලික් කළ බොත්තමට 'active' class එක එකතු කිරීම
+                button.classList.add('active');
+
+                // අදාළ අන්තර්ගත ටැබ් එක පෙන්වීම
+                const tabId = button.getAttribute('data-tab'); // බොත්තමේ data-tab attribute එක ලබා ගැනීම
+                const targetTab = document.getElementById(tabId); // අදාළ අන්තර්ගතය තෝරා ගැනීම
+                if (targetTab) {
+                    targetTab.classList.add('active'); // අන්තර්ගතයට 'active' class එක එකතු කිරීම
+                }
+            });
+        });
+
+        // පිටුව load වන විට පළමු tab එක active කිරීම (HTML එකේ active නැතිනම්)
+        if (!document.querySelector('.tab-btn.active')) {
+             tabButtons[0].classList.add('active');
+             tabContents[0].classList.add('active');
+        }
+    }
+
+    // --- Intersection Observer for Scroll Animations (Scroll Animation සඳහා Intersection Observer) ---
+    // 'data-animate' attribute එක සහිත සියලුම elements තෝරා ගැනීම
+    const animateElements = document.querySelectorAll('[data-animate]');
+
+    // Intersection Observer එක නිර්මාණය කිරීම
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // element එක viewport එක තුළට පැමිණි විට
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate'); // element එකට 'animate' class එක එකතු කිරීම
+                observer.unobserve(entry.target); // animation එක ක්‍රියාත්මක වූ පසු නිරීක්ෂණය නැවැත්වීම
+            }
+        });
+    }, {
+        threshold: 0.1 // element එකෙන් 10% ක් දර්ශනය වූ විට trigger කිරීම
+    });
+
+    // එක් එක් animate element එක නිරීක්ෂණය කිරීම
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // --- Parallax Effect (පැරලැක්ස් ආචරණය) ---
+    // 'parallax' class එක සහිත සියලුම elements තෝරා ගැනීම
+    const parallaxElements = document.querySelectorAll('.parallax');
+
+    // parallax elements තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (parallaxElements.length > 0) {
+        // පිටුව scroll කරන විට
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY; // වත්මන් scroll position එක ලබා ගැනීම
+
+            parallaxElements.forEach(element => {
+                const speed = parseFloat(element.getAttribute('data-speed')) || 0.3; // data-speed එක ලබා ගැනීම, නොමැති නම් 0.3
+                const yPos = scrollPosition * speed; // vertical position ගණනය කිරීම
+                element.style.transform = `translateY(${yPos}px)`; // element එක vertical අතට චලනය කිරීම
+            });
+        });
+    }
+
+    // --- Form Input Label/Focus Effects (ෆෝම් ඉන්පුට් ලේබල්/ෆෝකස් ආචරණ) ---
+    // 'form-group' class එක සහිත සියලුම elements තෝරා ගැනීම
+    const formGroups = document.querySelectorAll('.form-group');
+
+    formGroups.forEach(group => {
+        const input = group.querySelector('input, textarea'); // input හෝ textarea element එක සොයා ගැනීම
+
+        if (input) {
+            // input එක focus වූ විට
+            input.addEventListener('focus', function() {
+                group.classList.add('focused'); // form-group එකට 'focused' class එක එකතු කිරීම
+            });
+
+            // input එක blur වූ විට (focus නැති වූ විට)
+            input.addEventListener('blur', function() {
+                if (!this.value) { // input එක හිස් නම්
+                    group.classList.remove('focused'); // 'focused' class එක ඉවත් කිරීම
+                }
+            });
+
+            // පිටුව load වන විට input එකේ අගයක් තිබේ නම් (e.g., autofill)
+            if (input.value) {
+                group.classList.add('focused'); // 'focused' class එක එකතු කිරීම
+            }
+        }
+    });
+
+    // --- REMOVED: Button Hover Effects (CSS සඳහා යොමු කර ඇත) ---
+    // බොත්තම් වල hover styles CSS මගින් පමණක් (e.g., :hover pseudo-class) පාලනය කිරීම වඩාත් සුදුසුය.
+    // එය වඩා කාර්‍යක්ෂම වන අතර කෝඩ් එක වඩාත් පිරිසිදු කරයි.
+
+    // --- මෙනු පැනලය (Menu Panel) ---
+    // මෙනු පැනලය හා සම්බන්ධ elements තෝරා ගැනීම
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const menuPanel = document.getElementById('menuPanel');
+
+    // සියලුම elements තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (openMenuBtn && closeMenuBtn && menuPanel) {
+        // මෙනු විවෘත කිරීමේ බොත්තම ක්ලික් කළ විට
+        openMenuBtn.addEventListener('click', () => {
+            menuPanel.classList.add('active'); // පැනලයට 'active' class එක එකතු කිරීම (පැනලය පෙන්වයි)
+        });
+
+        // මෙනු වැසීමේ බොත්තම ක්ලික් කළ විට
+        closeMenuBtn.addEventListener('click', () => {
+            menuPanel.classList.remove('active'); // පැනලයෙන් 'active' class එක ඉවත් කිරීම (පැනලය සඟවයි)
+        });
+
+        // පැනලයෙන් පිටත ක්ලික් කළ විට වැසීමට
+        menuPanel.addEventListener('click', (e) => {
+            if (e.target === menuPanel) { // ක්ලික් කළේ menuPanel එකම නම්
+                menuPanel.classList.remove('active'); // 'active' class එක ඉවත් කර පැනලය වසයි
+            }
+        });
+    }
+
+    // --- Custom Popup (අභිරුචි පොප්අප්) ---
+    // පොප්අප් හා සම්බන්ධ elements තෝරා ගැනීම
+    const popupLinks = document.querySelectorAll('.open-popup-link');
+    const popupOverlay = document.getElementById('custom-popup-overlay');
+    const popupTitle = document.getElementById('popup-title');
+    const popupTextContent = document.getElementById('popup-text-content');
+    const closePopupBtn = document.getElementById('close-popup-btn');
+
+    // සියලුම elements තිබේ නම් පමණක් ක්‍රියාත්මක වීම
+    if (popupLinks.length > 0 && popupOverlay && popupTitle && popupTextContent && closePopupBtn) {
+        // සියලුම popup links සඳහා click listener එකක් එකතු කිරීම
+        popupLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // ලින්ක් එකේ default ක්‍රියාව නවත්වයි
+
+                const titleToShow = this.getAttribute('data-popup-title'); // popup title එක ලබා ගැනීම
+                const textToShow = this.getAttribute('data-popup-text'); // popup text content එක ලබා ගැනීම
+
+                // අන්තර්ගතය හිස් කර popup එක පෙන්වයි
+                popupTitle.textContent = '';
+                popupTextContent.textContent = '';
+                popupOverlay.style.display = 'flex'; // popup overlay එක පෙන්වයි
+
+                // 500ms ප්‍රමාදයකින් පසුව අන්තර්ගතය පෙන්වීම
+                setTimeout(() => {
+                    popupTitle.textContent = titleToShow;
+                    popupTextContent.textContent = textToShow;
+                }, 500);
+            });
+        });
+
+        // close බොත්තම ක්ලික් කළ විට
+        closePopupBtn.addEventListener('click', () => {
+            popupOverlay.style.display = 'none'; // popup overlay එක සඟවයි
+        });
+
+        // overlay එක මත ක්ලික් කළ විට popup එක වැසීම
+        popupOverlay.addEventListener('click', event => {
+            if (event.target === popupOverlay) { // ක්ලික් කළේ overlay එකම නම්
+                popupOverlay.style.display = 'none'; // popup overlay එක සඟවයි
+            }
+        });
+    }
+});
+
+
+
+
+</script>
+ </body>
+ </html>

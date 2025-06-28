@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inward Portfolio</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    </head>
+      
+  <style>/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #121212;
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #00f9ff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff00f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.glitch {
+    font-size: 2rem;
+    color: #fff;
+    position: relative;
+}
+
+.glitch:before, .glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff00f7;
+    animation: glitch 1s infinite;
+}
+
+.glitch:after {
+    color: #00f9ff;
+    animation-delay: 0.5s;
+}
+
+@keyframes glitch {
+    0% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    100% { transform: translate(2px, 2px); }
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    font-size: 1.1rem;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #00f9ff;
+    border-radius: 5px;
+}
+
+#nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Icon Styling */
+i {
+    color: #00f9ff;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+i:hover {
+    color: #ff00f7;
+}
+
+/* Optional: Add space between the icon and text */
+ul li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+ul li a {
+    margin-left: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Mobile View */
+    .menu-toggle {
+        display: flex;
+    }
+
+    #nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background-color: #121212;
+        padding: 20px 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: 10;
+    }
+
+    #nav-links.active {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        border-bottom: 2px solid #00f9ff;
+    }
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: left;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 5px solid #00f9ff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* Sections */
+section {
+    margin: 40px 0;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s ease;
+}
+
+section:hover {
+    background-color: #2a2a2a;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    color: #fff;
+    border-top: 2px solid #333;
+    margin-top: 40px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 1s ease-out forwards;
+}
+/* Underline h2 tags with blue color */
+h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #00ffee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Media Queries for Responsiveness */
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Reduce width for mobile */
+        padding: 10px;
+    }
+
+    /* Adjusting header for smaller screens */
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Responsive Navbar */
+    nav ul {
+        flex-direction: column;
+        display: none; /* Hide menu initially */
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: block; /* Show when menu button is clicked */
+    }
+
+    /* Style for Mobile Menu Icon */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 4px 0;
+        background: white;
+        transition: 0.3s;
+    }
+
+    /* Reduce project card width on mobile */
+    .project-card {
+        width: 90%;
+        font-size: 14px;
+        margin: 10px auto;
+    }
+
+    /* Adjusting text size and spacing in sections */
+    section {
+        padding: 20px;
+    }
+
+    /* Profile image responsive */
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Format Education & Experience Sections for Mobile */
+    .education ul li,
+    .experience ul li {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 5px; /* Adjusted spacing */
+        margin-bottom: 10px;
+    }
+
+    /* Ensure icons stay inline */
+    .education ul li i,
+    .experience ul li i {
+        font-size: 1rem;
+        color: #00ffee;
+        min-width: 24px;
+    }
+
+    /* Adjust list text */
+    .education ul li strong,
+    .experience ul li strong {
+        font-size: 1rem;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    /* Move company/school & dates to the next line */
+    .education ul li span,
+    .experience ul li span {
+        display: block;
+        font-size: 0.9rem;
+        color: #ccc;
+        margin-left: 32px; /* Align with icon */
+    }
+
+    /* Adjust icons in contact section */
+    .contact ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Space between icon and text */
+    }
+
+    .contact ul li i {
+        font-size: 1.2rem;
+        color: #00ffee;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="glitch">Welcome to Inward</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+            <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://files.catbox.moe/h3n9bc.jpg" alt="Your Profile Picture" class="profile-img">
+            <p>A passionate developer creating stunning web experiences. I specialize in modern UI/UX design, animations, and interactive web apps.</p>
+        </div>
+    </section>
+        
+        <section id="education" class="education">
+            <h2>Education</h2>
+            <ul>
+                <li> <strong>Master’s in Computer Science</strong>  XYZ University (2023 - 2025)</li>
+                <li> <strong>Bachelor’s in Information Technology</strong>  ABC College (2019 - 2023)</li>
+            </ul>
+        </section>
+        
+        
+        <section id="experience" class="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li> <strong>Frontend Developer</strong>  TechCorp (2024 - Present)</li>
+                <li> <strong>UI/UX Designer</strong>  Creative Studio (2022 - 2024)</li>
+                <li> <strong>Intern Web Developer</strong>  Startup Inc. (2021 - 2022)</li>
+            </ul>
+        </section>
+        
+        
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="project-card"><strong>Project 1 - </strong> <span>Interactive Web App</span></div>
+            <div class="project-card"><strong>Project 2 - </strong> <span>Dark Mode UI</span></div>
+            <div class="project-card"><strong>Project 3 - </strong><span>3D Animation Site</span></div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Let's work together! Reach out via:</p>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:your.email@example.com">email.com</a></li>
+                <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="#">linkedin.com</a></li>
+                <li><i class="fab fa-github"></i> GitHub: <a href="#">github.com</a></li>
+                <li><i class="fab fa-whatsapp"></i> WhatsApp: <a href="#">whatsapp.com</a></li>
+                <li><i class="fab fa-tiktok"></i> Tiktok: <a href="#">tiktok.com</a></li>
+           </ul>
+        </section>        
+        
+        <footer>
+            <p>&copy; 2025 Inward. All rights reserved. </p>
+        </footer>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.getElementById("nav-links");
+
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll("#nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+    }
+
+    // Smooth Scrolling
+    document.querySelectorAll("nav ul li a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: "smooth",
+                });
+            }
+        });
+    });
+
+    // Scroll Animation (Fade-in effect)
+    const sections = document.querySelectorAll("section");
+
+    const fadeInOnScroll = () => {
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight - 100) {
+                section.classList.add("visible");
+            }
+        });
+    };
+
+    window.addEventListener("scroll", fadeInOnScroll);
+    fadeInOnScroll(); // Call on load to check already visible sections
+
+    // Profile Image Hover Effect
+    const profileImg = document.querySelector(".profile-img");
+    if (profileImg) {
+        profileImg.addEventListener("mouseenter", () => {
+            profileImg.style.transform = "scale(1.1)";
+        });
+
+        profileImg.addEventListener("mouseleave", () => {
+            profileImg.style.transform = "scale(1)";
+        });
+    }
+
+    // Dynamic Year for Footer
+    const yearSpan = document.querySelector("#current-year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+</script>
+<script src="https://www.drv.tw/inc/wd.js?s=txrv14gw7kn81ziwrzhejw"></script></body>
+</html>

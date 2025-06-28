@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INDUWARA Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #003366;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #003366;
+      text-shadow: none;
+    }
+
+    #searchBox {
+      width: 340px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #000000;
+      outline: none;
+      font-size: 1.1rem;
+      background: #ffffff;
+      color: #003366;
+      box-shadow: none;
+      transition: 0.3s ease;
+    }
+
+    #searchBox:focus {
+      background: #f0f0f0;
+      border-color: #000000;
+    }
+
+    #suggestions {
+      width: 340px;
+      margin-top: 10px;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow-y: auto;
+      max-height: 180px;
+      border: 1px solid #000000;
+    }
+
+    #suggestions div {
+      padding: 12px 18px;
+      border-bottom: 1px solid #000000;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #003366;
+      font-weight: 600;
+    }
+
+    #suggestions div:hover {
+      background: #dbe9ff;
+      color: #000000;
+    }
+
+    #weatherCard {
+      margin-top: 40px;
+      width: 380px;
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 18px;
+      padding: 25px 30px;
+      color: #003366;
+      display: none;
+      box-shadow: none;
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    #weatherCard h2 {
+      font-size: 1.7rem;
+      text-align: center;
+      font-weight: 900;
+      text-shadow: none;
+    }
+
+    #weatherIcon {
+      display: block;
+      margin: 18px auto;
+      width: 100px;
+      height: 100px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .weather-detail {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      font-size: 1.05rem;
+      border-bottom: 1px solid #000000;
+      padding-bottom: 6px;
+    }
+
+    .label {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .value {
+      font-weight: 600;
+      color: #003366;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    #serviceInfo {
+      max-width: 900px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #003366; /* Bright blue text */
+      background: rgba(0, 123, 255, 0.05); /* Subtle background */
+      border: 2px solid #3399ff; /* Bateta blue border */
+      border-left: 6px solid #00ccff; /* Bold left border highlight */
+      border-radius: 16px;
+      padding: 28px 36px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 170, 255, 0.15);
+      animation: fadeSlideIn 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    #serviceInfo::before {
+      content: "📡";
+      font-size: 1.rem;
+      position: absolute;
+      top: 18px;
+      left: 18px;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+      
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #1A1A1A;
+  color: #bbb;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Sri Lanka Weather Details</h1>
+
+  <input type="text" id="searchBox" placeholder="Enter the district name..." autocomplete="off" />
+  <div id="suggestions"></div>
+
+  <div id="weatherCard">
+    <h2 id="locationName"></h2>
+    <img id="weatherIcon" src="" alt="Weather Icon" />
+    <div class="weather-detail"><span class="label">උෂ්ණත්වය:</span> <span class="value" id="temp"></span></div>
+    <div class="weather-detail"><span class="label">දැනෙන්නෙ මෙසේ:</span> <span class="value" id="feelsLike"></span></div>
+    <div class="weather-detail"><span class="label">ආර්ද්‍රතාවය:</span> <span class="value" id="humidity"></span></div>
+    <div class="weather-detail"><span class="label">කාලගුණය:</span> <span class="value" id="weatherMain"></span></div>
+    <div class="weather-detail"><span class="label">විස්තරය:</span> <span class="value" id="weatherDesc"></span></div>
+    <div class="weather-detail"><span class="label">සුළං වේගය:</span> <span class="value" id="windSpeed"></span></div>
+    <div class="weather-detail"><span class="label">පීඩනය:</span> <span class="value" id="pressure"></span></div>
+  </div>
+  
+  <p id="serviceInfo">
+    <strong>INDUWARA Weather App</strong> යනු ශ්‍රී ලංකාවේ දිස්ත්‍රික් මට්ටමින් කාලගුණ තොරතුරු ලබාදෙන විශ්වාසදායක, පහසුවෙන් භාවිත කළ හැකි සේවාවකි. ඔබගේ දිස්ත්‍රික් නාමය ඇතුළත් කිරීමෙන් වර්තමාන උෂ්ණත්වය, ආර්ද්‍රතාවය, සුළං වේගය, වළාකුළු තත්වය, වර්ෂාව අවදානම් මට්ටම, සහ සන්ධ්‍යා කාලයේ හා රාත්‍රී උෂ්ණත්ව වෙනස්කම් වහාම ලබා ගත හැක.<br><br>
+
+    මෙම යෙදුම API තාක්ෂණය මත පදනම් වූ අතර, වර්තමාන තත්ත්වයන්ට වඩාත් සුපරික්ෂිතව අනාවැකියක් ලබා දීමට හැකියාව ඇත. මෙය විශේෂයෙන්ම ගොවීන්, සංචාරකයින්, සහ දෛනික වැඩකටයුතු සැලසුම්කරුවන් සඳහා ඉතාමත් ප්‍රයෝජනවත් වේ.<br><br>
+
+    කෙටි කාලීන කාලගුණ වෙනස්කම්, වායුගෝලීය දත්ත, සහ දිනයේ උදෑසන සිට රාත්‍රී දක්වා පැය 24 ම අකණ්ඩ සේවය අපෙන්...<br><br>
+
+    <strong>INDUWARA Weather App</strong> is a reliable and user-friendly service that provides weather information at the district level in Sri Lanka. By entering your district name, you can instantly access current temperature, humidity, wind speed, cloud conditions, rainfall risk level, and even temperature changes during the evening and night.<br><br>
+
+    This application is based on API technology, allowing it to deliver highly accurate forecasts in real-time. It is especially useful for farmers, travelers, and individuals planning daily activities.<br><br>
+
+    It also offers short-term weather updates, atmospheric data, and continuous 24-hour service from morning to night...
+  </p>
+      <!-- Footer -->
+   <footer>
+    Made by <a href="https://induwaraya.netlify.app">Isira induwara</a> &copy; 2025 - <span id="currentYear"></span> All rights reserved.
+  </footer>
+
+  
+  
+  <script>
+const districts = [
+  { district: "Colombo", lat: 6.9271, lon: 79.8612 },
+  { district: "Gampaha", lat: 7.0895, lon: 79.9922 },
+  { district: "Kalutara", lat: 6.5836, lon: 79.9607 },
+  { district: "Kandy", lat: 7.2906, lon: 80.6337 },
+  { district: "Matale", lat: 7.4675, lon: 80.6234 },
+  { district: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
+  { district: "Galle", lat: 6.0535, lon: 80.221 },
+  { district: "Matara", lat: 5.9549, lon: 80.5485 },
+  { district: "Hambantota", lat: 6.1246, lon: 81.1185 },
+  { district: "Jaffna", lat: 9.6615, lon: 80.0255 },
+  { district: "Kilinochchi", lat: 9.4058, lon: 80.3984 },
+  { district: "Mannar", lat: 8.977, lon: 79.9044 },
+  { district: "Vavuniya", lat: 8.7513, lon: 80.497 },
+  { district: "Mullaitivu", lat: 9.2679, lon: 80.8128 },
+  { district: "Batticaloa", lat: 7.7102, lon: 81.6924 },
+  { district: "Ampara", lat: 7.2946, lon: 81.672 },
+  { district: "Trincomalee", lat: 8.5874, lon: 81.2152 },
+  { district: "Kurunegala", lat: 7.486, lon: 80.3647 },
+  { district: "Puttalam", lat: 8.0355, lon: 79.8285 },
+  { district: "Anuradhapura", lat: 8.3114, lon: 80.4037 },
+  { district: "Polonnaruwa", lat: 7.9403, lon: 81.0188 },
+  { district: "Badulla", lat: 6.9934, lon: 81.055 },
+  { district: "Monaragala", lat: 6.8937, lon: 81.345 },
+  { district: "Ratnapura", lat: 6.6828, lon: 80.3996 },
+  { district: "Kegalle", lat: 7.2514, lon: 80.3464 }
+];
+
+const apiKey = '2d61a72574c11c4f36173b627f8cb177';
+
+const searchBox = document.getElementById('searchBox');
+const suggestions = document.getElementById('suggestions');
+const weatherCard = document.getElementById('weatherCard');
+
+searchBox.addEventListener('input', () => {
+  const query = searchBox.value.trim();
+  if (!query) {
+    suggestions.innerHTML = '';
+    weatherCard.style.display = 'none';
+    return;
+  }
+  const filtered = districts.filter(d =>
+    d.district.toLowerCase().includes(query.toLowerCase())
+  );
+  if (filtered.length === 0) {
+    suggestions.innerHTML = '<div>දිස්ත්‍රික් නමක් හමු නොවීය</div>';
+    weatherCard.style.display = 'none';
+    return;
+  }
+  suggestions.innerHTML = '';
+  filtered.forEach(d => {
+    const div = document.createElement('div');
+    div.textContent = d.district;
+    div.addEventListener('click', () => {
+      searchBox.value = d.district;
+      suggestions.innerHTML = '';
+      getWeather(d.lat, d.lon, d.district);
+    });
+    suggestions.appendChild(div);
+  });
+});
+
+async function getWeather(lat, lon, district) {
+  try {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=si`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Weather data fetch failed');
+    const data = await res.json();
+
+    document.getElementById('locationName').textContent = `${district} දිස්ත්‍රික්කයේ කාලගුණ තොරතුරු`;
+    document.getElementById('temp').textContent = `${data.main.temp} °C`;
+    document.getElementById('feelsLike').textContent = `${data.main.feels_like} °C`;
+    document.getElementById('humidity').textContent = `${data.main.humidity} %`;
+    document.getElementById('weatherMain').textContent = data.weather[0].main;
+    document.getElementById('weatherDesc').textContent = data.weather[0].description;
+    document.getElementById('windSpeed').textContent = `${data.wind.speed} m/s`;
+    document.getElementById('pressure').textContent = `${data.main.pressure} hPa`;
+    const icon = document.getElementById('weatherIcon');
+    icon.style.opacity = 0; // start fade out
+    icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    icon.alt = data.weather[0].description;
+    setTimeout(() => {
+      icon.style.opacity = 1; // fade in
+    }, 100);
+
+    weatherCard.style.display = 'block';
+
+  } catch (error) {
+    alert('කාලගුණ තොරතුරු ගන්නා විට දෝෂයක් සිදුවී ඇත.');
+    weatherCard.style.display = 'none';
+  }
+}
+  </script>
+<script src="https://www.drv.tw/inc/wd.js?s=txrv14gw7kn81ziwrzhejw"></script></body>
+</html>
