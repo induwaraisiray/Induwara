@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhatsApp app product manage</title>
+<style>
+  :root{
+    --bg1:#0b0f17;
+    --bg2:#141a29;
+    --card:rgba(18,24,38,0.85);
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --radius:18px;
+    --gap:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{
+    height:100%;
+    margin:0;
+    color:var(--text);
+    font-family:ui-sans-serif,system-ui;
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
+    overflow-x:hidden;
+  }
+
+  /* animated gradient background */
+  body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(120deg,#ff005e,#00d4ff,#ffea00,#00ff73);
+    background-size:400% 400%;
+    animation:grad 12s ease infinite;
+    z-index:-2;
+    opacity:0.15;
+  }
+  @keyframes grad{
+    0%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+  }
+
+  /* floating glowing particles */
+  .particle{
+    position:fixed;
+    width:10px;height:10px;
+    background:rgba(255,255,255,0.2);
+    border-radius:50%;
+    animation:float 10s linear infinite;
+    z-index:-1;
+  }
+  @keyframes float{
+    0%{ transform:translateY(110vh) scale(0.5);}
+    100%{ transform:translateY(-10vh) scale(1.2);}
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:40px auto;
+    padding:24px;
+    flex:1;
+  }
+  /* RGB title */
+  .title{
+    font-size:clamp(22px, 3vw, 34px);
+    font-weight:800;
+    margin:0 0 14px;
+    background:linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:400%;
+    animation:rgbText 5s linear infinite;
+    text-shadow:0 0 15px rgba(255,255,255,0.2);
+  }
+  @keyframes rgbText{
+    0%{ background-position:0% 50%; }
+    100%{ background-position:100% 50%; }
+  }
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    padding:12px 18px;
+    background:linear-gradient(135deg,#ff005e,#00d4ff);
+    color:#fff;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    font-weight:650;
+    transition:all .25s ease;
+    text-decoration:none;
+    box-shadow:0 0 12px rgba(255,0,150,0.6),0 0 24px rgba(0,255,255,0.6);
+  }
+  .btn:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 0 20px rgba(255,0,150,0.9),0 0 40px rgba(0,255,255,0.9);
+  }
+  .btn input[type=file]{ display:none }
+
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:18px;
+    border:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(12px);
+    animation:fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(20px);}
+    to{ opacity:1; transform:translateY(0);}
+  }
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:var(--gap);
+  }
+  .tile{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:#0a0f1a;
+    min-height:180px;
+    display:grid;
+    place-items:center;
+    border:2px solid transparent;
+    box-shadow:0 0 15px rgba(0,255,255,0.5),0 0 25px rgba(255,0,150,0.5);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .tile:hover{
+    transform:scale(1.04);
+    box-shadow:0 0 25px rgba(0,255,255,0.8),0 0 45px rgba(255,0,150,0.8);
+  }
+  .tile img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .tile a.dl{
+    position:absolute;
+    right:10px; bottom:10px;
+    background:rgba(0,0,0,.45);
+    backdrop-filter: blur(4px);
+    border:1px solid rgba(255,255,255,.18);
+    color:#fff; text-decoration:none;
+    font-size:12px; padding:6px 10px;
+    border-radius:999px;
+  }
+  .drop{
+    border-radius:16px;
+    border:1px dashed rgba(255,255,255,.25);
+    padding:14px 16px;
+    color:var(--muted);
+    transition:.3s;
+  }
+  .drop.drag{
+    border-color:#fff;
+    background:rgba(255,255,255,.05);
+    color:#fff;
+  }
+  .hint{ color:var(--muted); font-size:14px }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    padding:14px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(6px);
+  }
+  @media (max-width:720px){
+    .grid{ gap:12px }
+    .tile{ min-height:120px }
+  }
+
+</style>
+</head>
+<body>
+  <!-- floating particles -->
+  <div class="particle" style="left:10%; animation-duration:12s;"></div>
+  <div class="particle" style="left:30%; animation-duration:18s;"></div>
+  <div class="particle" style="left:50%; animation-duration:15s;"></div>
+  <div class="particle" style="left:70%; animation-duration:20s;"></div>
+  <div class="particle" style="left:90%; animation-duration:14s;"></div>
+
+
+  <div class="wrap">
+    <div class="row">
+      <h1 class="title">WHTSAPP PRODUCT IMGE 6</h1>
+      <button id="manageBtn" class="btn">Manage</button>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="row" style="gap:12px;">
+        <label class="btn">
+          Upload Image 
+          <input id="file" type="file" accept="image/*">
+        </label>
+        <button id="sample" class="btn">Load Demo</button>
+        <div id="drop" class="drop">Drag & drop an image here</div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="grid" class="grid"></div>
+      <p class="hint" style="margin-top:12px;">Devoleoper is isira induwara.</p>
+    </div>
+  </div>
+  <footer>© 2025 ᴍᴀᴅᴇ ʙʏ ɪɴᴀᴡᴀʀᴅ ᴏꜰꜰɪᴄᴇ</footer>
+
+<!-- JSZip library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<script>
+console.log("© 2025 ᴍᴀᴅᴇ ʙʏ ɪɴᴀᴡᴀʀᴅ ᴏꜰꜰɪᴄᴇ");
+
+(function(){
+  const fileInput = document.getElementById('file');
+  const grid = document.getElementById('grid');
+  const drop = document.getElementById('drop');
+  const sampleBtn = document.getElementById('sample');
+  const COLS = 3, ROWS = 2;
+  
+  // custom order (0-5 indexes)
+  const order = [0,1,2,3,4,5]; // change numbers to rearrange tiles
+
+  function clearGrid(){
+    grid.innerHTML = "";
+    for(let i=0;i<ROWS*COLS;i++){
+      const d = document.createElement('div');
+      d.className = 'tile';
+      d.innerHTML = `<span class="hint">No image</span>`;
+      grid.appendChild(d);
+    }
+  }
+  clearGrid();
+
+  async function loadImageFromFile(file){
+    return new Promise((res, rej)=>{
+      const fr = new FileReader();
+      fr.onload = () => {
+        const img = new Image();
+        img.onload = () => res(img);
+        img.onerror = rej;
+        img.src = fr.result;
+      };
+      fr.onerror = rej;
+      fr.readAsDataURL(file);
+    });
+  }
+
+  function sliceToSix(img){
+    const sw = img.naturalWidth;
+    const sh = img.naturalHeight;
+    const tileW = Math.floor(sw / COLS);
+    const tileH = Math.floor(sh / ROWS);
+    const blobs = [];
+
+    for(let r=0;r<ROWS;r++){
+      for(let c=0;c<COLS;c++){
+        const sx = c*tileW;
+        const sy = r*tileH;
+        const canvas = document.createElement('canvas');
+        canvas.width = tileW;
+        canvas.height = tileH;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, sx, sy, tileW, tileH, 0, 0, tileW, tileH);
+        blobs.push(canvas.toDataURL('image/png'));
+      }
+    }
+    grid.innerHTML = "";
+    order.forEach((idx)=>{
+      const url = blobs[idx];
+      const tile = document.createElement('div');
+      tile.className = 'tile';
+      const im = new Image();
+      im.src = url;
+      im.alt = `tile-${idx+1}`;
+      tile.appendChild(im);
+      const a = document.createElement('a');
+      a.className = 'dl';
+      a.textContent = 'Download';
+      a.href = url;
+      a.download = `tile-${idx+1}.png`;
+      tile.appendChild(a);
+      tile.addEventListener('click', ()=> a.click());
+      grid.appendChild(tile);
+    });
+  }
+
+  fileInput.addEventListener('change', async (e)=>{
+    const file = e.target.files?.[0];
+    if(!file) return;
+    const img = await loadImageFromFile(file);
+    sliceToSix(img);
+  });
+
+  ['dragenter','dragover'].forEach(ev=>{
+    drop.addEventListener(ev, e=>{
+      e.preventDefault(); e.stopPropagation();
+      drop.classList.add('drag');
+    });
+  });
+  ['dragleave','drop'].forEach(ev=>{
+    drop.addEventListener(ev, e=>{
+      e.preventDefault(); e.stopPropagation();
+      if(ev==='drop'){
+        const file = e.dataTransfer.files?.[0];
+        if(file) loadImageFromFile(file).then(sliceToSix);
+      }
+      drop.classList.remove('drag');
+    });
+  });
+
+  sampleBtn.addEventListener('click', ()=>{
+    const demo = new Image();
+    demo.src =
+      "https://picsum.photos/900/600"; // demo random image
+    demo.crossOrigin = "Anonymous";
+    demo.onload = ()=> sliceToSix(demo);
+  });
+})();
+</script>
+</body>
+  </html>
