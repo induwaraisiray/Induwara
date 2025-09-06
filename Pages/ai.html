@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #1a1a1a;
+            --accent-green: #00ff88;
+            --dark-green: #00cc6a;
+            --accent-blue: #085f8c;
+            --dark-blue: #0078d4;
+            --light-blue: #40c4ff;
+            --text-white: #ffffff;
+            --text-gray: #e8e1e1;
+            --border-gray: #333333;
+            --gradient-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --card-bg: rgba(26, 26, 26, 0.95);
+            --sidebar-width: 260px;
+            --header-height: 60px;
+            --danger-red: #ff4757;
+            --warning-orange: #ffa502;
+            --success-green: #2ed573;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-white);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            background: linear-gradient(90deg, var(--secondary-black), var(--accent-blue));
+            color: var(--text-white);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            flex-grow: 1;
+            letter-spacing: 1px;
+        }
+
+        .chat-header .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: var(--secondary-black);
+        }
+
+        /* Scrollbar */
+        .chat-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background-color: var(--accent-green);
+            border-radius: 4px;
+        }
+
+        .chat-body::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            font-size: 1em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-out;
+            transition: all 0.3s ease; /* Added for smooth hover effects */
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .user-message {
+            background-color: var(--dark-green);
+            color: var(--primary-black);
+            align-self: flex-end;
+            border-bottom-right-radius: 8px;
+        }
+
+        .bot-message {
+            background-color: var(--card-bg);
+            color: var(--text-gray);
+            align-self: flex-start;
+            border: 1px solid var(--border-gray);
+            border-bottom-left-radius: 8px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 16px 24px;
+            border-top: 1px solid var(--border-gray);
+            background: var(--secondary-black);
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1em;
+            background-color: var(--primary-black);
+            color: var(--text-white);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .chat-input input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .chat-input input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+
+        .chat-input button {
+            border: none;
+            background: var(--accent-green);
+            color: var(--primary-black);
+            padding: 0 24px;
+            margin-left: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .chat-input button:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .chat-input button:active {
+            transform: translateY(0) scale(0.95);
+        }
+        
+        .chat-input button i {
+            margin-left: 8px;
+        }
+
+        .chat-footer {
+            text-align: center;
+            padding: 12px;
+            font-size: 0.85em;
+            color: var(--text-gray);
+            border-top: 1px solid var(--border-gray);
+            background: var(--secondary-black);
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            font-style: italic;
+            color: var(--text-gray);
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dot-flashing 1.2s infinite steps(1, end);
+        }
+        
+        @keyframes dot-flashing {
+            0%, 50% { content: '.'; }
+            50.1%, 75% { content: '..'; }
+            75.1%, 100% { content: '...'; }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .chat-header {
+                padding: 16px;
+            }
+
+            .chat-header h1 {
+                font-size: 1.4em;
+            }
+
+            .chat-body {
+                padding: 16px;
+            }
+
+            .chat-input {
+                padding: 12px 16px;
+            }
+            
+            .chat-input button {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="logo"><i class="fas fa-brain"></i></div>
+            <h1>Induwara AI Chat</h1>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="bot-message message">👋 මම INDUWARA AI bot. ඔයාට මොනවද මගෙන් දැන ගන්න ඕනා?<div class="copy-icon"><i class="fas fa-copy"></i></div></div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+
+
+        <div class="chat-footer">2025 © 𝙲𝚁𝙴𝙰𝚃𝙴 𝙱𝚈 𝙸𝚂𝙸𝚁𝙰 𝙸𝙽𝙳𝚄𝚆𝙰𝚁𝙰</div>
+    </div>
+
+    <script>
+        // API key and URL (replace with a working key and endpoint)
+        const API_URL = 'https://sadiya-tech-apis.vercel.app/ai/gemini?q=';
+        const API_KEY = 'sadiya';
+
+        // Add a message to the chat
+        function addMessage(type, text) {
+            const chatBody = document.getElementById('chatBody');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${type}-message`);
+            
+            // Add copy icon only to bot messages
+            if (type === 'bot') {
+                messageDiv.innerHTML = `<span>${text}</span><div class="copy-icon"><i class="fas fa-copy"></i></div>`;
+                const copyIcon = messageDiv.querySelector('.copy-icon');
+                copyIcon.addEventListener('click', () => copyMessage(text, copyIcon));
+            } else {
+                messageDiv.innerHTML = `<span>${text}</span>`;
+            }
+            
+            chatBody.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // Copy message to clipboard
+        function copyMessage(textToCopy, iconElement) {
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    const originalIcon = iconElement.innerHTML;
+                    iconElement.innerHTML = `<i class="fas fa-check" style="color: var(--accent-green);"></i>`;
+                    
+                    setTimeout(() => {
+                        iconElement.innerHTML = originalIcon;
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Copy failed. Please try again or copy manually.');
+                });
+        }
+
+        // Scroll to the bottom of the chat
+        function scrollToBottom() {
+            const chatBody = document.getElementById('chatBody');
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Handle sending a message
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const userMessage = input.value.trim();
+
+            if (!userMessage) return;
+
+            // Add user message to the chat
+            addMessage('user', userMessage);
+            input.value = '';
+
+            // Add a temporary loading message for the bot
+            addMessage('bot', '<div class="loading">Typing...</div>');
+
+            try {
+                // Fetch the response from the API
+                const url = `${API_URL}${encodeURIComponent(userMessage)}&apikey=${API_KEY}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                // Remove the loading message and add the new one
+                const loadingMessage = document.querySelector('.bot-message:last-child');
+                if (loadingMessage) {
+                    loadingMessage.remove();
+                }
+
+                if (data.result) {
+                    addMessage('bot', data.result);
+                } else {
+                    addMessage('bot', 'Sorry, something went wrong. Please try again.');
+                }
+
+            } catch (error) {
+                console.error('Error fetching API:', error);
+                const lastBotMessage = document.querySelector('.bot-message:last-child');
+                if (lastBotMessage && lastBotMessage.querySelector('.loading')) {
+                    lastBotMessage.innerHTML = `<span>An error occurred. Check your connection.</span><div class="copy-icon"><i class="fas fa-copy"></i></div>`;
+                } else {
+                    addMessage('bot', 'An error occurred. Check your connection.');
+                }
+            }
+
+            scrollToBottom();
+        }
+
+        // Allow sending a message with the Enter key
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
